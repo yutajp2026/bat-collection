@@ -32,22 +32,22 @@
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
-echo 起動しています...
 python --version
 if not %errorlevel% == 0 (
-    echo pythonがインストールされていません
-    curl  -L -O "https://www.python.org/ftp/python/3.14.6/python-3.14.6-amd64.exe"
+    title Gemini - Pythonがインストールされていません
+    curl  -L -O "https://www.python.org/ftp/python/3.14.7/python-3.14.7-amd64.exe"
     echo msgbox "Pythonインストーラを開きます。「Add python.exe to PATH」へチェックを入れ、「Install Now」を選択してください。インストールできたらこのアプリをもう一度起動してください。" > %TEMP%/msgboxtest.vbs & %TEMP%/msgboxtest.vbs
-    start python-3.14.6-amd64.exe & exit
+    start python-3.14.7-amd64.exe & exit
 )
 echo Pythonは上記のバージョンがインストールされています。
 if not exist venv (
-    echo 仮想環境を作成しています...
+    title Gemini - 仮想環境を作成しています...
     python -m venv venv
 )
 call venv\Scripts\activate.bat
-echo パッケージを確認しています...
+title Gemini - パッケージを確認しています...
 python -m pip install -U pip
 pip install -U gradio google-genai
 cd app
+title Gemini - バックエンド
 python gemini.py
