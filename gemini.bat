@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCuDJH6B+Us+ISdVXBS+MGS9CfsV6+eb
+::fBw5plQjdCuDJH6B+Us+ISdYQwONcmK5CdU=
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -50,4 +50,4 @@ python -m pip install -U pip
 pip install -U gradio google-genai
 cd app
 title Gemini - バックエンド
-python gemini.py
+python gemini_windows.py
