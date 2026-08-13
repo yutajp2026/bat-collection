@@ -1,2 +1,2 @@
 # Bat collection
-インストーラ作成時のbatファイル退避用
+exeファイル作成用
