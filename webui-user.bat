@@ -34,7 +34,6 @@
 @echo off
 title Stable Diffusion WebUI
 set PYTHON="C:\Users\%username%\AppData\Local\Programs\Python\Python310\python.exe"
-set STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git
 
 nvidia-smi
 if %ERRORLEVEL% NEQ 0 (
