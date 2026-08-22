@@ -45,7 +45,7 @@ if %ERRORLEVEL% NEQ 0 (
 git config --global --add safe.directory %~dp0\repositories\*
 if %ERRORLEVEL% NEQ 0 (
     winget install --id Git.Git -e --source winget
-    echo Gitï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ÌƒAï¿½vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½é‚©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B
+    echo Git‚ªƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ü‚µ‚½BƒAƒvƒŠ‚ÌÄ‹N“®‚ª•K—v‚©‚à‚µ‚ê‚Ü‚¹‚ñB
 )
 
 call webui.bat
