@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFAJATQ+DAHiuB7cQ7aX/5uyBt14UW+xyb4rZz72yLO8U5QvtdplN
+::fBw5plQjdCyDJGyX8VAjFAJATQ+DAHiuB7cQ7aX/5uyBt14UW+xyb4rZz73DKvAv5krjetgk1XU6
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -26,7 +26,7 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCyDJGyX8VAjFAJATQ+DAHiuB7cQ7aX/5uyBt14UW+xyb4rZz72yN+UR/0ypYIUoxDRfgM5s
+::Zh4grVQjdCyDJGyX8VAjFAJATQ+DAHiuB7cQ7aX/5uyBt14UW+xyb4rZz73DKvAv/UDmYJ9gw2lfioUJFB44
 ::YB416Ek+ZG8=
 ::
 ::
@@ -34,6 +34,7 @@
 @echo off
 title Stable Diffusion WebUI
 set PYTHON="C:\Users\%username%\AppData\Local\Programs\Python\Python310\python.exe"
+set STABLE_DIFFUSION_REPO=https://github.com/w-e-w/stablediffusion.git
 
 nvidia-smi
 if %ERRORLEVEL% NEQ 0 (
