@@ -48,4 +48,11 @@ if %ERRORLEVEL% NEQ 0 (
     echo Gitがインストールされました。アプリの再起動が必要かもしれません。
 )
 
+powershell -command "$v = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -like 'Microsoft Visual C++*' }; if ($v) { exit 0 } else { exit 1 }"
+if %ERRORLEVEL% NEQ 0 (
+    curl -O https://aka.ms/vc14/vc_redist.x64.exe
+    start vc_redist.x64.exe 
+    echo Microsoft Visual C++ Redistributableがインストールされました。アプリの再起動が必要かもしれません。
+)
+
 call webui.bat
