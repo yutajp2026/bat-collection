@@ -37,9 +37,9 @@ set PYTHON="C:\Users\%username%\AppData\Local\Programs\Python\Python310\python.e
 
 nvidia-smi
 if %ERRORLEVEL% NEQ 0 (
-    set COMMANDLINE_ARGS=--use-cpu all --precision full --no-half --skip-torch-cuda-test --log-startup --loglevel WARNING
+    set COMMANDLINE_ARGS=--use-cpu all --precision full --no-half --skip-torch-cuda-test --opt-sdp-attention --log-startup
 ) else (
-    set COMMANDLINE_ARGS=--xformers --log-startup --loglevel WARNING
+    set COMMANDLINE_ARGS=--xformers --log-startup
 )
 
 git config --global --add safe.directory %~dp0\repositories\*
