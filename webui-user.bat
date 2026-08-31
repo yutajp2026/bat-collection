@@ -35,6 +35,11 @@
 title Stable Diffusion WebUI
 set PYTHON="C:\Users\%username%\AppData\Local\Programs\Python\Python310\python.exe"
 
+if not defined sdwebui (
+    echo コマンドプロンプトに"%sdwebui%"と入力することで、WebUIを起動できるようになりました。
+    setx sdwebui "%~dp0\webui.bat"
+)
+
 nvidia-smi
 if %ERRORLEVEL% NEQ 0 (
     set COMMANDLINE_ARGS=--use-cpu all --precision full --no-half --skip-torch-cuda-test --opt-sdp-attention --log-startup
