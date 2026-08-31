@@ -6,4 +6,4 @@ exeファイル作成用
 
 内容物
 - gemini.bat - for https://github.com/yutajp2026/Gemini
-- webui-user.bat - for https://github.com/yutajp2026/stable-diffusion-webui
+- webui-user.bat - for https://github.com/yutajp2026/stable-diffusion-webui-jp
