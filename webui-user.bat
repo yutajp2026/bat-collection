@@ -32,7 +32,7 @@
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
-title Stable Diffusion WebUI
+title StableDiffusionWebUI
 set PYTHON="C:\Users\%username%\AppData\Local\Programs\Python\Python310\python.exe"
 
 if not defined sdwebui (
@@ -41,20 +41,20 @@ if not defined sdwebui (
 )
 
 nvidia-smi
-if %ERRORLEVEL% == 9009 (
+if %ERRORLEVEL% NEQ 0 (
     set COMMANDLINE_ARGS=--use-cpu all --precision full --no-half --skip-torch-cuda-test --opt-sdp-attention --log-startup
 ) else (
     set COMMANDLINE_ARGS=--xformers --log-startup
 )
 
-git config --global --add safe.directory %~dp0\repositories\*
-if %ERRORLEVEL% == 9009 (
+git config --global --add safe.directory "%~dp0\repositories\*"
+if %ERRORLEVEL% NEQ 0 (
     winget install --id Git.Git -e --source winget
     echo Gitがインストールされました。アプリの再起動が必要かもしれません。
 )
 
 powershell -command "$v = Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | Where-Object { $_.DisplayName -like 'Microsoft Visual C++*' }; if ($v) { exit 0 } else { exit 1 }"
-if %ERRORLEVEL% == 1 (
+if %ERRORLEVEL% NEQ 0 (
     curl -O https://aka.ms/vc14/vc_redist.x64.exe
     start vc_redist.x64.exe 
     echo Microsoft Visual C++ Redistributableがインストールされました。アプリの再起動が必要かもしれません。
