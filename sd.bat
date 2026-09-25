@@ -39,12 +39,11 @@ if not %errorlevel% == 0 (
     echo msgbox "Pythonインストーラを開きます。「Add python.exe to PATH」へチェックを入れ、「Install Now」を選択してください。インストールできたらこのアプリをもう一度起動してください。" > %TEMP%/msgboxtest.vbs & %TEMP%/msgboxtest.vbs
     start python-3.14.7-amd64.exe & exit
 )
-set "VC_REDIST=vc_redist.x64.exe"
 reg query "HKLM\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" /v Version >nul 2>&1
 if errorlevel 1 (
     title Stable Diffusion - Visual C++ Redistributableをインストールしています...
-    curl -L -o "%VC_REDIST%" "https://aka.ms/vs/17/release/vc_redist.x64.exe"
-    "%VC_REDIST%" /install /quiet /norestart
+    curl -L -O "https://aka.ms/vs/17/release/vc_redist.x64.exe"
+    start vc_redist.x64.exe
 )
 if not exist venv (
     title Stable Diffusion - 仮想環境を作成しています...
