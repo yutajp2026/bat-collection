@@ -42,7 +42,7 @@ if not %errorlevel% == 0 (
 reg query "HKLM\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" /v Version >nul 2>&1
 if errorlevel 1 (
     title Stable Diffusion - Visual C++ Redistributableをインストールしています...
-    curl -L -O "https://aka.ms/vs/17/release/vc_redist.x64.exe"
+    curl -L -O "https://aka.ms/vc14/vc_redist.x64.exe"
     start vc_redist.x64.exe
 )
 if not exist venv (
