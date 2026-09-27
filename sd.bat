@@ -56,5 +56,5 @@ python -m pip install -U pip
 title Stable Diffusion - パッケージをインストールしています...
 pip install -r requirements.txt
 title Stable Diffusion - WebUIを起動しています...
-for /f "delims=" %%A in ('powershell (Get-ItemProperty 'sdwebui.exe').VersionInfo.FileVersion') do set VERSION=%%A
+for /f "delims=" %%A in ('powershell -NoProfile -Command "(Get-Item 'sdwebui.exe').VersionInfo.FileVersion"') do set "VERSION=%%A"
 python main.py
