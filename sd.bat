@@ -17,7 +17,7 @@
 ::cxY6rQJ7JhzQF1fEqQJhZksaHErSXA==
 ::ZQ05rAF9IBncCkqN+0xwdVsFAlTMbCXqZg==
 ::ZQ05rAF9IAHYFVzEqQIDPBpWQAHCGGK8AKAP4ef1jw==
-::eg0/rx1wNQPfEVWB+kM9LVsJDBeGK264E7xS7fD+jw==
+::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
 ::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
 ::cRolqwZ3JBvQF1fEqQJQ
 ::dhA7uBVwLU+EWDk=
@@ -56,6 +56,5 @@ python -m pip install -U pip
 title Stable Diffusion - パッケージをインストールしています...
 pip install -r requirements.txt
 title Stable Diffusion - WebUIを起動しています...
-echo アプリのバージョン
-powershell (Get-ItemProperty 'sdwebui.exe').VersionInfo.FileVersion
+for /f "delims=" %%A in ('powershell (Get-ItemProperty 'sdwebui.exe').VersionInfo.FileVersion') do set VERSION=%%A
 python main.py
