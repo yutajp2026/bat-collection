@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
-::YAwzoRdxOk+EWAnk
-::fBw5plQjdG8=
+::YAwzoRdxOk+EWAjk
+::fBw5plQjdCyDJGyX8VAjFAJATQ+DAHi+S7EV7u7u/O+VsQAXRN42dY7c3/qHI+9z
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -26,33 +26,34 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
+::Zh4grVQjdCyDJGyX8VAjFAJATQ+DAHi+S7EV7u7u/O+VsQAXRN4sfJje2KGHbuUL7yU=
 ::YB416Ek+ZG8=
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
-title Stable Diffusion
+title Stable Diffusion 1.0
 python --version
 if not %errorlevel% == 0 (
-    title Stable Diffusion - Pythonがインストールされていません
+    title Stable Diffusion 1.0 - Pythonがインストールされていません
     curl  -L -O "https://www.python.org/ftp/python/3.14.7/python-3.14.7-amd64.exe"
     echo msgbox "Pythonインストーラを開きます。「Add python.exe to PATH」へチェックを入れ、「Install Now」を選択してください。インストールできたらこのアプリをもう一度起動してください。" > %TEMP%/msgboxtest.vbs & %TEMP%/msgboxtest.vbs
     start python-3.14.7-amd64.exe & exit
 )
 reg query "HKLM\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" /v Version
 if errorlevel 1 (
-    title Stable Diffusion - Visual C++ Redistributableをインストールしています...
+    title Stable Diffusion 1.0 - Visual C++ Redistributableをインストールしています...
     curl -L -O "https://aka.ms/vc14/vc_redist.x64.exe"
     start vc_redist.x64.exe
 )
 if not exist venv (
-    title Stable Diffusion - 仮想環境を作成しています...
+    title Stable Diffusion 1.0 - 仮想環境を作成しています...
     python -m venv venv
 )
 call venv\Scripts\activate.bat
-title Stable Diffusion - pipを更新しています...
+title Stable Diffusion 1.0 - pipを更新しています...
 python -m pip install -U pip
-title Stable Diffusion - パッケージをインストールしています...
+title Stable Diffusion 1.0 - パッケージをインストールしています...
 pip install -r requirements.txt
-title Stable Diffusion - WebUIを起動しています...
+title Stable Diffusion 1.0 - WebUIを起動しています...
 python main.py
