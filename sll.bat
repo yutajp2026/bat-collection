@@ -1,7 +1,7 @@
 ::[Bat To Exe Converter]
 ::
 ::YAwzoRdxOk+EWAjk
-::fBw5plQjdCyDJGyX8VAjFAJATQ+DAEy/C7wS4dT34O2I7EQeW4I=
+::fBw5plQjdCyDJGyX8VAjFAJATQ+DAHivFrAOpeT34qeLo1gTV+o6arPS17WJJa4a6UqE
 ::YAwzuBVtJxjWCl3EqQJgSA==
 ::ZR4luwNxJguZRRnk
 ::Yhs/ulQjdF+5
@@ -26,29 +26,29 @@
 ::ZQ0/vhVqMQ3MEVWAtB9wSA==
 ::Zg8zqx1/OA3MEVWAtB9wSA==
 ::dhA7pRFwIByZRRnk
-::Zh4grVQjdCuDJH6B+Us+ISdTSQmLMmL0A60ZiA==
+::Zh4grVQjdCyDJGyX8VAjFAJATQ+DAHivFrAOpeT34qeLo1gTV+o6arPX26GAI+gW+AvhbZNN
 ::YB416Ek+ZG8=
 ::
 ::
 ::978f952a14a936cc963da21a135fa983
 @echo off
-title Gemini
+title Super LLM Launcher
 python --version
 if not %errorlevel% == 0 (
-    title Gemini - Pythonがインストールされていません
-    curl  -L -O "https://www.python.org/ftp/python/3.14.7/python-3.14.7-amd64.exe"
+    title Super LLM Launcher - Pythonがインストールされていません
+    curl  -L -O "https://www.python.org/ftp/python/3.14.8/python-3.14.8-amd64.exe"
     echo msgbox "Pythonインストーラを開きます。「Add python.exe to PATH」へチェックを入れ、「Install Now」を選択してください。インストールできたらこのアプリをもう一度起動してください。" > %TEMP%/msgboxtest.vbs & %TEMP%/msgboxtest.vbs
-    start python-3.14.7-amd64.exe & exit
+    start python-3.14.8-amd64.exe & exit
 )
 echo Pythonは上記のバージョンがインストールされています。
 if not exist venv (
-    title Gemini - 仮想環境を作成しています...
+    title Super LLM Launcher - 仮想環境を作成しています...
     python -m venv venv
 )
 call venv\Scripts\activate.bat
-title Gemini - パッケージを確認しています...
+title Super LLM Launcher - パッケージを確認しています...
 python -m pip install -U pip
-pip install -U gradio google-genai
-cd app
-title Gemini - バックエンド
-python gemini_windows.py
+pip install -U gradio google-genai openai
+title Super LLM Launcher - WebUIを起動しています...
+for /f "delims=" %%A in ('powershell -NoProfile -Command "(Get-Item 'launcher.exe').VersionInfo.FileVersion"') do set "VERSION=%%A"
+python app.py
