@@ -5,5 +5,4 @@
 exeファイル作成用
 
 内容物
-- gemini.bat - for https://github.com/yutajp2026/Gemini
 - sd.bat - for https://github.com/yutajp2026/sd-diffusers-jp
