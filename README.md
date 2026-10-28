@@ -5,4 +5,6 @@
 exeファイル作成用
 
 内容物
-- sd.bat - for https://github.com/yutajp2026/sd-diffusers-jp
+- sd.bat - https://github.com/yutajp2026/sd-diffusers
+- sll.bat - https://github.com/yutajp2026/super-llm-launcher
+- stl.bat - https://github.com/yutajp2026/super-tts-launcher
