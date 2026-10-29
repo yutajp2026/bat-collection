@@ -41,6 +41,12 @@ if not %errorlevel% == 0 (
     start python-3.14.8-amd64.exe & exit
 )
 echo Pythonは上記のバージョンがインストールされています。
+reg query "HKLM\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" /v Version
+if errorlevel 1 (
+    title Super TTS Launcher - Visual C++ Redistributableをインストールしています...
+    curl -L -O "https://aka.ms/vc14/vc_redist.x64.exe"
+    start vc_redist.x64.exe
+)
 if not exist venv (
     title Super TTS Launcher - 仮想環境を作成しています...
     python -m venv venv
@@ -51,11 +57,10 @@ python -m pip install -U pip
 nvidia-smi
 if %errorlevel% == 0 (
     set device=cuda
-    pip install torch --index-url https://download.pytorch.org/whl/cu126
 ) else (
     set device=cpu
 )
-pip install -U gradio google-genai qwen-tts https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/voicevox_core-0.17.1-cp310-abi3-win_amd64.whl
+pip install -r requirements.txt
 if not exist voicevox_core (
     title Super TTS Launcher - VoiceVox Coreインストーラをダウンロードしています...
     curl  -L -O "https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/download-windows-x64.exe"
