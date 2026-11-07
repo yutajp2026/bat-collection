@@ -54,14 +54,14 @@ if not exist venv (
 call venv\Scripts\activate.bat
 title Super TTS Launcher - パッケージを確認しています...
 python -m pip install -U pip
+pip install gradio google-genai elevenlabs https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/voicevox_core-0.17.1-cp310-abi3-manylinux_2_34_x86_64.whl
 nvidia-smi
 if %errorlevel% == 0 (
     set device=cuda
 ) else (
     set device=cpu
 )
-pip install -r requirements.txt
-pip install https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/voicevox_core-0.17.1-cp310-abi3-win_amd64.whl
+
 if not exist voicevox_core (
     title Super TTS Launcher - VoiceVox Coreインストーラをダウンロードしています...
     curl  -L -O "https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/download-windows-x64.exe"
