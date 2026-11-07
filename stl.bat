@@ -63,9 +63,9 @@ if %errorlevel% == 0 (
 )
 
 if not exist voicevox_core (
-    if not exist voicevox_downloader.exe (
+    if not exist voicevox_core_downloader.exe (
         title Super TTS Launcher - VoiceVox Coreインストーラをダウンロードしています...
-        curl  -L -o "voicevox_downloader.exe" "https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/download-windows-x64.exe"
+        curl  -L -o "voicevox_core_downloader.exe" "https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/download-windows-x64.exe"
     )
     title Super TTS Launcher - VoiceVox Coreインストーラを実行しています...
     voicevox_downloader.exe --exclude c-api --devices %device%
