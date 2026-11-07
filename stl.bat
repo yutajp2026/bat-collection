@@ -68,7 +68,7 @@ if not exist voicevox_core (
         curl  -L -o "voicevox_core_downloader.exe" "https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/download-windows-x64.exe"
     )
     title Super TTS Launcher - VoiceVox Coreインストーラを実行しています...
-    voicevox_downloader.exe --exclude c-api --devices %device%
+    voicevox_core_downloader.exe --exclude c-api --devices %device%
 )
 title Super TTS Launcher - WebUIを起動しています...
 for /f "delims=" %%A in ('powershell -NoProfile -Command "(Get-Item 'launcher.exe').VersionInfo.FileVersion"') do set "VERSION=%%A"
