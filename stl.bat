@@ -54,7 +54,7 @@ if not exist venv (
 call venv\Scripts\activate.bat
 title Super TTS Launcher - パッケージを確認しています...
 python -m pip install -U pip
-pip install gradio google-genai elevenlabs https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/voicevox_core-0.17.1-cp310-abi3-manylinux_2_34_x86_64.whl
+pip install gradio google-genai elevenlabs https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/voicevox_core-0.17.1-cp310-abi3-win_amd64.whl
 nvidia-smi
 if %errorlevel% == 0 (
     set device=cuda
@@ -63,11 +63,13 @@ if %errorlevel% == 0 (
 )
 
 if not exist voicevox_core (
-    title Super TTS Launcher - VoiceVox Coreインストーラをダウンロードしています...
-    curl  -L -O "https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/download-windows-x64.exe"
+    if not exist voicevox_downloader.exe (
+        title Super TTS Launcher - VoiceVox Coreインストーラをダウンロードしています...
+        curl  -L -o "voicevox_downloader.exe" "https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/download-windows-x64.exe"
+    )
     title Super TTS Launcher - VoiceVox Coreインストーラを実行しています...
-    download-windows-x64.exe --exclude c-api --devices %device%
+    voicevox_downloader.exe --exclude c-api --devices %device%
 )
-title Super LLM Launcher - WebUIを起動しています...
+title Super TTS Launcher - WebUIを起動しています...
 for /f "delims=" %%A in ('powershell -NoProfile -Command "(Get-Item 'launcher.exe').VersionInfo.FileVersion"') do set "VERSION=%%A"
 python app.py
