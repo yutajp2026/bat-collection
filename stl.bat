@@ -14,8 +14,8 @@
 ::dAsiuh18IRvcCxnZtBJQ
 ::cRYluBh/LU+EWAnk
 ::YxY4rhs+aU+IeA==
-::cxY6rQJ7JhzQF1fEqQJhZksaHErSXA==
-::ZQ05rAF9IBncCkqN+0xwdVsFAlTMbCXqZg==
+::cxY6rQJ7JhzQF1fEqQJhZkoaHErSXA==
+::ZQ05rAF9IBncCkqN+0xwdVsFAlXMbCXqZg==
 ::ZQ05rAF9IAHYFVzEqQIDPQtRXkS2CFj6KrQJ5uvz6vjn
 ::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
 ::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
@@ -36,9 +36,9 @@ title Super TTS Launcher
 python --version
 if not %errorlevel% == 0 (
     title Super TTS Launcher - Pythonがインストールされていません
-    curl  -L -O "https://www.python.org/ftp/python/3.14.8/python-3.14.8-amd64.exe"
+    curl  -L -O "https://www.python.org/ftp/python/3.15.2/python-3.15.2-amd64.exe"
     echo msgbox "Pythonインストーラを開きます。「Add python.exe to PATH」へチェックを入れ、「Install Now」を選択してください。インストールできたらこのアプリをもう一度起動してください。" > %TEMP%/msgboxtest.vbs & %TEMP%/msgboxtest.vbs
-    start python-3.14.8-amd64.exe & exit
+    start python-3.15.2-amd64.exe & exit
 )
 echo Pythonは上記のバージョンがインストールされています。
 reg query "HKLM\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64" /v Version
@@ -54,7 +54,7 @@ if not exist venv (
 call venv\Scripts\activate.bat
 title Super TTS Launcher - パッケージを確認しています...
 python -m pip install -U pip
-pip install gradio google-genai elevenlabs https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/voicevox_core-0.17.1-cp310-abi3-win_amd64.whl
+pip install -U gradio google-genai elevenlabs https://github.com/VOICEVOX/voicevox_core/releases/download/0.17.1/voicevox_core-0.17.1-cp310-abi3-win_amd64.whl
 nvidia-smi
 if %errorlevel% == 0 (
     set device=cuda
